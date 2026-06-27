@@ -1,0 +1,4 @@
+# Netlify 設定（若改用 Netlify 部署時才需要）
+# 單一靜態 HTML，發佈目錄就是根目錄，無需建置。
+[build]
+  publish = "."

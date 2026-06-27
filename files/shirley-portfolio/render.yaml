@@ -1,0 +1,18 @@
+# Render Blueprint — 將本資料夾以「免費靜態網站」部署
+# 規格文件：https://render.com/docs/blueprint-spec
+# 這是純靜態 HTML，不需要建置步驟（buildCommand 留空即可）。
+
+services:
+  - type: web
+    name: shirley-portfolio
+    runtime: static
+    staticPublishPath: .          # index.html 就在 repo 根目錄
+    pullRequestPreviewsEnabled: false
+    routes:
+      - type: rewrite             # 任何路徑都回到首頁（單頁網站）
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
